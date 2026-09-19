@@ -15,7 +15,7 @@ server.listen(PORT, () => {
 // Código do Bot
 function createBot() {
   const bot = mineflayer.createBot({
-    host: 'inserirtexto-gWHK.aternos.me',
+    host: 'chimaera.aternos.host',
     port: 38060,
     username: 'inserirtexto',
     // Define a versão exata do Minecraft (ex: '1.20.4' ou '1.20.6' dependendo do teu servidor)

@@ -4,7 +4,7 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: 'inserirtexto-gWHK.aternos.me',
     port: 38060,
-    username: 'botteste',
+    username: 'inserirtexto',
     version: false
   })
 

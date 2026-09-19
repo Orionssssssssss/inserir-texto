@@ -1,5 +1,18 @@
+const http = require('http')
 const mineflayer = require('mineflayer')
 
+// Servidor Web básico para o Fly.io passar na verificação HTTP
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' })
+  res.end('Bot de Minecraft rodando online!')
+})
+
+const PORT = process.env.PORT || 8080
+server.listen(PORT, () => {
+  console.log(`Servidor HTTP rodando na porta ${PORT}`)
+})
+
+// Código do Bot
 function createBot() {
   const bot = mineflayer.createBot({
     host: 'inserirtexto-gWHK.aternos.me',
@@ -9,9 +22,9 @@ function createBot() {
   })
 
   bot.on('spawn', () => {
-    console.log('inserirtexto entrou no servidor Aternos!')
+    console.log('inserirtexto entrou com sucesso no servidor Aternos!')
 
-    // Rotina anti-AFK avançada
+    // Rotina anti-AFK com movimentação
     setInterval(() => {
       // 1. Mexer o braço
       bot.swingArm('right')
@@ -21,7 +34,7 @@ function createBot() {
       const pitch = (Math.random() - 0.5) * Math.PI
       bot.look(yaw, pitch, false)
 
-      // 3. Dar um pequeno pulo e passo para frente
+      // 3. Dar um pulo e andar para a frente
       bot.setControlState('jump', true)
       bot.setControlState('forward', true)
 

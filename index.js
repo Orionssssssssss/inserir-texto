@@ -8,9 +8,6 @@ const CONFIG = {
   // Endereço do servidor (pode ser o IP normal ou o DynIP)
   host: 'inserirtexto-gWHK.aternos.me',
   
-  // Porta do servidor (38060 indicada na Aternos)
-  port: 38060,
-  
   // Nome de utilizador do Bot no jogo
   username: 'inserirtexto',
   

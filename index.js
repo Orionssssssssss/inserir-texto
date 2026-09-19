@@ -4,19 +4,34 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: 'inserirtexto-gWHK.aternos.me',
     port: 38060,
-    username: 'inserirtexto',
+    username: 'botteste',
     version: false
   })
 
   bot.on('spawn', () => {
-    console.log('botteste entrou com sucesso no servidor Aternos!')
-  })
+    console.log('botteste entrou no servidor Aternos!')
 
-  // Movimento de braço anti-AFK a cada 30 segundos
-  bot.on('spawn', () => {
+    // Rotina anti-AFK avançada
     setInterval(() => {
+      // 1. Mexer o braço
       bot.swingArm('right')
-    }, 30000)
+
+      // 2. Olhar para uma direção aleatória
+      const yaw = Math.random() * Math.PI * 2
+      const pitch = (Math.random() - 0.5) * Math.PI
+      bot.look(yaw, pitch, false)
+
+      // 3. Dar um pequeno pulo e passo para frente
+      bot.setControlState('jump', true)
+      bot.setControlState('forward', true)
+
+      // Parar de andar e pular após 1 segundo
+      setTimeout(() => {
+        bot.setControlState('jump', false)
+        bot.setControlState('forward', false)
+      }, 1000)
+
+    }, 20000) // Executa a cada 20 segundos
   })
 
   bot.on('end', () => {

@@ -9,7 +9,7 @@ function createBot() {
   })
 
   bot.on('spawn', () => {
-    console.log('botteste entrou no servidor Aternos!')
+    console.log('inserirtexto entrou no servidor Aternos!')
 
     // Rotina anti-AFK avançada
     setInterval(() => {

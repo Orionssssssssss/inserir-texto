@@ -18,7 +18,10 @@ function createBot() {
     host: 'inserirtexto-gWHK.aternos.me',
     port: 38060,
     username: 'inserirtexto',
-    version: false
+    // Define a versão exata do Minecraft (ex: '1.20.4' ou '1.20.6' dependendo do teu servidor)
+    // Deixar 'false' faz a Aternos recusar a conexão
+    version: '1.20.4', 
+    checkTimeoutInterval: 60 * 1000 // Evita desconexões por tempo de espera
   })
 
   bot.on('spawn', () => {
@@ -26,13 +29,15 @@ function createBot() {
 
     // Rotina anti-AFK com movimentação
     setInterval(() => {
+      if (!bot.entity) return
+
       // 1. Mexer o braço
       bot.swingArm('right')
 
       // 2. Olhar para uma direção aleatória
       const yaw = Math.random() * Math.PI * 2
       const pitch = (Math.random() - 0.5) * Math.PI
-      bot.look(yaw, pitch, false)
+      bot.look(yaw, pitch, true)
 
       // 3. Dar um pulo e andar para a frente
       bot.setControlState('jump', true)
@@ -47,9 +52,10 @@ function createBot() {
     }, 20000) // Executa a cada 20 segundos
   })
 
-  bot.on('end', () => {
-    console.log('Desconectado. Tentando reconectar em 10 segundos...')
-    setTimeout(createBot, 10000)
+  bot.on('end', (reason) => {
+    console.log(`Desconectado (${reason}). Tentando reconectar em 20 segundos...`)
+    // Aumentado para 20s para evitar bloqueio de IP na Aternos
+    setTimeout(createBot, 20000)
   })
 
   bot.on('error', (err) => {

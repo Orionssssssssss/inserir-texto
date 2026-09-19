@@ -6,7 +6,7 @@ const mineflayer = require('mineflayer')
 // ==========================================
 const CONFIG = {
   // Endereço do servidor (pode ser o IP normal ou o DynIP)
-  host: 'penguin.aternos.host',
+  host: 'inserirtexto-gWHK.aternos.me',
   
   // Porta do servidor (38060 indicada na Aternos)
   port: 38060,

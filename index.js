@@ -6,7 +6,7 @@ const mineflayer = require('mineflayer')
 // ==========================================
 const CONFIG = {
   // Endereço do servidor (pode ser o IP normal ou o DynIP)
-  host: 'inserirtexto-gWHK.aternos.me',
+  host: 'inserirtexto.play.hosting',
   
   // Nome de utilizador do Bot no jogo
   username: 'inserirtexto',
